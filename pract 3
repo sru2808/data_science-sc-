@@ -1,0 +1,60 @@
+#csv file .....save as student_data.csv
+
+student	age	city
+srushti	22	mumbai
+duggu	21	vashi
+coco	20	cbd
+
+#xml file..... save as student_data.xml
+<data>
+   <row>
+       <student>srushti</student>
+       <age>22</age>
+       <city>mumbai</city>
+   </row>
+   <row>
+       <student>duggu</student>
+       <age>21</age>
+       <city>vashi</city>
+   </row>
+   <row>
+       <student>coco</student>
+       <age>20</age>
+       <city>cbd</city>
+   </row>
+</data>
+
+#json file......save as student_data.json
+[
+ {"student":"srushti","age":22,"city":"mumbai"},
+ {"student":"duggu","age":21,"city":"vashi"},
+ {"student":"coco","age":20,"city":"cbd"}
+]
+
+
+
+# main code 
+import pandas as pd
+from google.colab import files
+files.upload()
+
+#csv
+data=pd.read_csv("student_data.csv")
+new=data[["student","age"]]
+new.columns=["studentname","studentage"]
+print("csv to horus")
+print(new)
+
+#xml
+data=pd.read_xml("student_data.xml")
+new=data[["student","age"]]
+new.columns=["studentname","studentage"]
+print("xml to horus")
+print(new)
+
+#csv
+data=pd.read_json("student_data.json")
+new=data[["student","age"]]
+new.columns=["studentname","studentage"]
+print("json to horus")
+print(new)
