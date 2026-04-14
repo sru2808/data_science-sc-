@@ -1,0 +1,28 @@
+import pandas as pd
+from google.colab import files
+
+uploaded = files.upload()   # ✅ only once
+
+# 🖼️ IMAGE → HORUS
+for name in uploaded.keys():
+    df = pd.DataFrame([[name, "image", len(uploaded[name])]],
+                      columns=["filename", "filetype", "filesize"])
+
+print("IMAGE HORUS")
+print(df)
+
+# 🎥 VIDEO → HORUS
+for name in uploaded.keys():
+    df = pd.DataFrame([[name, "video", len(uploaded[name])]],
+                      columns=["filename", "filetype", "filesize"])
+
+print("VIDEO HORUS")
+print(df)
+
+# 🎵 AUDIO → HORUS
+for name in uploaded.keys():
+    df = pd.DataFrame([[name, "audio", len(uploaded[name])]],
+                      columns=["filename", "filetype", "filesize"])
+
+print("AUDIO HORUS")
+print(df)
